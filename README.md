@@ -1,12 +1,12 @@
-# HP LaserJet 1020 — Modern macOS Driver (Under 4MB)
+# HP LaserJet 1020 — Modern macOS Driver
 
-HP never released an official driver for the LaserJet 1020 Printer for modern macOS versions (Ventura, Sonoma, Sequoia, or macOS 26).
+HP never released an official driver for the LaserJet 1020 Printer for modern macOS versions (13 and above) eg. Ventura, Sonoma, Sequoia, or Tahoe.
 
 This repo is an ultra minimal, stripped-down, patched and community-maintained driver package that gets the HP LaserJet 1020 Printer fully working on modern macOS in under 4MB.
 
 It works by extracting only the 4 files that actually matter from Apple's HP Printer Drivers 5.1.1 package, placing them in the right locations, and using the most-compatible LaserJet 1022 PPD (which drives the 1020 Printer hardware perfectly).
 
-Tested and working on: **macOS Ventura, Sonoma, Sequoia, and macOS 26**.
+Tested and working on: **macOS 26 Tahoe**.
 
 ---
 
@@ -102,7 +102,7 @@ lpstat -p HP_LaserJet_1020
 ## Notes
 
 - The `lpadmin: Printer drivers are deprecated` warning from CUPS is harmless — printing works fine
-- Uses the **LaserJet 1022** PPD, which is fully compatible with the 1020 hardware
+- Uses the **LaserJet 1022** PPD, which is tested to be compatible with the 1020 hardware
 - The binaries are universal (x86_64 + arm64) — works on both Intel and Apple Silicon Macs
 
 ---
