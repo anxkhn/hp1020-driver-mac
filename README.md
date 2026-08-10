@@ -103,7 +103,7 @@ lpstat -p HP_LaserJet_1020
 
 - The `lpadmin: Printer drivers are deprecated` warning from CUPS is harmless — printing works fine
 - Uses the **LaserJet 1022** PPD, which is tested to be compatible with the 1020 hardware
-- The binaries are universal (x86_64 + arm64) — works on both Intel and Apple Silicon Macs
+- The provided binaries are x86_64 only and do not support Apple Silicon natively.
 
 ---
 
