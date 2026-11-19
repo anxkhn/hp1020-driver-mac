@@ -60,6 +60,15 @@ sudo chmod 755 "/Library/Printers/hp/laserjet/hplaserjetzjs.bundle/Contents/MacO
 sudo chmod 755 "/Library/Printers/hp/laserjet/hplaserjetzjs.bundle/Contents/MacOS/commandToHPZJS"
 ```
 
+On Apple Silicon Macs, install Rosetta 2. The filters are Intel-only (x86_64), and without Rosetta every job stops with "Filter failed" or stays at "Sending data to printer".
+
+```bash
+sudo softwareupdate --install-rosetta --agree-to-license
+
+# check: prints nothing and exits 0 when Rosetta is installed
+arch -x86_64 /usr/bin/true
+```
+
 ### 3. Connect the printer
 
 - Plug in the HP LaserJet 1020 via USB (USB-B cable; use a USB-C adapter)
@@ -103,7 +112,8 @@ lpstat -p HP_LaserJet_1020
 
 - The `lpadmin: Printer drivers are deprecated` warning from CUPS is harmless — printing works fine
 - Uses the **LaserJet 1022** PPD, which is tested to be compatible with the 1020 hardware
-- The binaries are universal (x86_64 + arm64) — works on both Intel and Apple Silicon Macs
+- The binaries are Intel-only (x86_64). They run natively on Intel Macs and through Rosetta 2 on Apple Silicon Macs
+- If jobs stop with "Filter failed" or stay at "Sending data to printer" on Apple Silicon, Rosetta 2 is missing. The CUPS log (`/var/log/cups/error_log`) shows `com.apple.badarch-error`
 
 ---
 
